@@ -1,4 +1,4 @@
-package option
+package builder
 
 type Config struct {
 	ValueA string
