@@ -5,10 +5,10 @@ import (
 	"time"
 )
 
-func Test_getInstance(t *testing.T) {
+func Test_getDoubleCheckInstance(t *testing.T) {
 	for i := 0; i < 100; i++ {
 		go func() {
-			if i := getInstance(); i == nil {
+			if i := getDoubleCheckInstance(); i == nil {
 				t.Error("instance is nil")
 			}
 		}()

@@ -5,32 +5,19 @@ import (
 	"sync"
 )
 
-type singleObject struct {
+type Instance struct {
 }
 
 var once sync.Once
 
-var instance *singleObject
+var instance *Instance
 
 // getInstance once.Do 实现 singleTon
-func getInstance() *singleObject {
+func getInstance() *Instance {
 	// 保证只执行一次
 	once.Do(func() {
-		instance = &singleObject{}
+		instance = &Instance{}
 		fmt.Println("实例化SingleObject")
 	})
-	return instance
-}
-
-var lock sync.Mutex
-
-// getDoubleCheckInstance Double Check 加锁实现单例
-func getDoubleCheckInstance() *singleObject {
-	lock.Lock()
-	defer lock.Unlock()
-	if instance == nil {
-		instance = &singleObject{}
-		fmt.Println("实例化SingleObject")
-	}
 	return instance
 }
