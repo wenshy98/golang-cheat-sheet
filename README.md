@@ -9,6 +9,10 @@
   - once.Do(func() {...}) 单例
 - 饿汉模式 类加载初始化，没用也创建
 
+
+sync.Once应用场景 
+- 高并发的场景下只执行一次，例如只加载一次配置文件、只关闭一次通道等。
+
 ## option 选项设计模式（函数选项, 接口选项-不对外暴露结构体）
 why use
 - 提供了默认值，同时允许灵活配置
@@ -18,3 +22,5 @@ why use
 [Go语言设计模式之函数选项模式 | 李文周的博客](https://www.liwenzhou.com/posts/Go/functional-options-pattern/)
 
 ## builder 建造者模式
+
+## usecontext 使用 context 包
